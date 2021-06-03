@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>V chat</title>
+
+<!-- Links -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+<link rel='stylesheet' href="{% static 'style.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- end link -->
+
+
+</head>
+<body>
+    <a href="{% url 'another' %}"><img src='{% static "Vchatlogo.png" %}' alt='logo' /></a>
+    
+
+<br><br>
+<div id='blk'>
+    {% block update %}
+    
+    <h2>Account card</h2>
+    <br><br><br>
+    {% if request.user.userprofileinfo.profile_pic.url %}
+    <img id="aapp" src="{{request.user.userprofileinfo.profile_pic.url}}">
+    {% else %}
+    <img id="aapp" src="{% static 'user.png' %}">
+    <p style="opacity:0.5;">No profile picture updated!</p>
+    {% endif %}
+<br><br>
+<p style="font-weight:bold;">Name</p>
+<p>{{user.username}}</p>
+<br>
+<p style="font-weight:bold;">Email</p>
+<p>{{user.email}}</p>
+    <br><br><br>
+    
+    <a href="{% url 'another' %}"><button type="button" id="anbtn">Go back</button></a>
+    {% endblock %}
+    
+</div>
+<br><br><br><br>
+    <table>
+        <tr>
+            <td><a href="http://www.google.com"><img id='g' src='{% static "google.png" %}' alt='logo' /></a></td>
+            <td><a href="http://www.github.com"><img id='f' src='{% static "facebook.png" %}' alt='logo' /></a></td>
+            <td><a href="http://www.facebook.com"><img id='gi' src='{% static "github.png" %}' alt='logo' /></a></td>
+            <td><a href="http://www.instagram.com"><img id='i' src='{% static "instagram.png" %}' alt='logo' /></a></td>
+        </tr>
+    </table>
+    <br>
+    <p style="opacity:0.6;">Copyright © 2021. All rights reserved</p>
+    <p style="opacity:0.6;">Site designed by @SyedAareez</p>
+</body>
+</html>
+
+
+
+
+
+
+<!--<!DOCTYPE html>
+{% extends 'app/account.html' %}
+{% block update %}
+<h2>Account card</h2>
+    <br><br><br>
+    <img id="aapp" src="{{singleUser.userprofileinfo.profile_pic.url}}">
+<br><br>
+<p style="font-weight:bold;">Name</p>
+<p>{{singleUser.username}}</p>
+<br>
+<p style="font-weight:bold;">Email</p>
+<p>{{singleUser.email}}</p>
+    <br><br><br>
+    
+    <a href="{% url 'another' %}"><button type="button" id="anbtn">Go back</button></a>
+
+
+
+{% endblock %}-->

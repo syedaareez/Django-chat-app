@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends 'app/base.html' %}
+{% block content %}
+<form action='{% url "app:user_login" %}' method='POST' >
+    {% csrf_token %}
+    <label for="username" style="font-weight:bold; color:rgb(64, 151, 245);">Username:</label>
+    <input type='text' placeholder='Username' name="username">
+    <br><br><br>
+    <label for="password" style="font-weight:bold; color:rgb(64, 151, 245);">Password:</label>
+    <input type='password' placeholder='Password' name="password">
+    <br><br><br>
+    <input type='submit' style="border-radius:10px; height:35px; width:80px; font-size:15px; background-color:rgb(64, 151, 245); color:white; font-weight:bold;" value='Log In' />
+    
+</form>
+{% endblock %}

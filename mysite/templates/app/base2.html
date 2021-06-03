@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>V chat</title>
+
+<!-- Links -->
+<link rel="stylesheet" href="{% static 'style2.css' %}">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+<!-- end link -->
+    
+</head>
+<body>
+<!-- NAVBAR -->
+<nav>
+<table>
+<tr>
+    <td><a href="{% url 'another' %}"><img id="logo" src="{% static 'Vchatlogo.png' %}" alt="logo" /></a></td>
+    <td id="prop">
+        {% if request.user.userprofileinfo.profile_pic.url %}
+        <a href="{% url 'account' %}"><img id="pp" src="{{request.user.userprofileinfo.profile_pic.url}}"></a>
+        {% else %}
+        <a href="{% url 'account' %}"><img id="pp" src="{% static 'user.png' %}"></a>
+        {% endif %}
+    </td>
+    <td id="usr"><span id="getusr" style="font-weight:bold;">{{ user.username }}</span></td>
+<td style="position:fixed; right:15px;"><a id="lo" href="{% url 'logout' %}">Log Out</a></td>
+</tr>
+</table>
+</nav>
+<!-- /NAVBAR -->    
+    
+<table>
+<tr>
+    <td id='o' style="overflow:hidden; height:568px;">
+        <div id="likenav">
+        <br>
+        <input type="search" placeholder="Search User" id="srchbar" />
+        <button  type="button" style="background:transparent; border:none;"><img id="srchbtn" src="{% static 'searchlogo.png' %}"/></button>
+        <br>
+        <br>
+        
+        </div>
+        
+        
+        <div id="sareusr" style="display:none;">{{all_userd}}</div>
+        <div style="height:480px; overflow:auto; width:100%; ">
+        {% for singleUser in allUsers%}
+            <button id="usrblock" onclick="private({{singleUser.id}})"><div  >
+                {{ singleUser.id|json_script:"json-muserID" }}
+                <div id="user{{singleUser.id}}" >
+                    
+                    
+                    <!-- conditions start form here!-->
+                    {% if singleUser.id > request.user.id %}
+                    <div id="id{{singleUser.id}}" style="display:none;">{{singleUser.id}}and{{request.user.id}}</div>
+                    {% else %}
+                    <div id="id{{singleUser.id}}" style="display:none;">{{request.user.id}}and{{singleUser.id}}</div>
+                    {% endif %}
+                    <!--condition ends-->
+                    
+                    
+                    
+                {% if singleUser.userprofileinfo.profile_pic.url %}
+                <span id="usrlog{{singleUser.id}}"><img id='usrlog' src="{{ singleUser.userprofileinfo.profile_pic.url}}" ></span><h3 id="usrnme{{singleUser.id}}">{{singleUser.username}}</h3>
+                {% else %}
+                <span id="usrlog{{singleUser.id}}"><img id='usrlog' src="{% static 'user.png' %}" ></span><h3 id="usrnme{{singleUser.id}}">{{singleUser.username}}</h3>
+                {% endif %}
+                </div>
+                
+                </div></button>
+                <script src="{% static 'ptop.js' %}"></script>
+                    
+        {% endfor %}
+                
+        </div>
+    </td>
+    
+    <td id='t'>
+        <div id="navofuser"></div>
+        {% block content2 %}
+        <br><br><br><br><br><br><br><br><br>
+        <h1 id="blnkpge">Chat with your friends</h1>
+        <h2 id="blnkpge">Or</h2>
+        <h1 id="blnkpge">Click here to join a public chat room!</h1>
+        <br>
+        <a href="{% url 'chatroom' %}"><button type="button" id='start'>Public</button></a>
+        {% endblock %}
+    </td>
+</tr>
+</table>
+    {{ username|json_script:"json-username" }}
+    <!--<script src="{% static 'sender.js' %}"></script>-->
+    
+</body>
+</html>

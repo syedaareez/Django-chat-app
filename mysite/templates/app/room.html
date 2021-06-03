@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+
+{% extends 'app/base2.html' %}
+{% load static %}
+{% block content2 %}
+
+
+    
+    <div id='chatuser'>
+    {% if fir %}
+    {% for singleUser in allUsers %}
+    {% if singleUser.id == fir and request.user.id == las %}
+        
+    {% if singleUser.userprofileinfo.profile_pic.url %}
+    <img id='usrlog' src="{{ singleUser.userprofileinfo.profile_pic.url}}" >
+    {% else %}
+    <img id='usrlog' src="{% static 'user.png' %}" >
+    {% endif %}
+        
+    <h3 id="usrlogusrnme">{{singleUser.username}}</h3>
+    <button id="vcbtn" onclick="startvc()"><img id="vcbtnimg" src='{% static "videocall.png" %}'/></button>
+    <button id="joinvid" onclick="joinvc()" >Join</button>
+    {{ singleUser.username|json_script:"json-musername" }}
+        
+    {% elif singleUser.id == las and request.user.id == fir %}
+        
+    {% if singleUser.userprofileinfo.profile_pic.url %}
+    <img id='usrlog' src="{{ singleUser.userprofileinfo.profile_pic.url}}" >
+    {% else %}
+    <img id='usrlog' src="{% static 'user.png' %}" >
+    {% endif %}
+        
+    <h3 id="usrlogusrnme">{{singleUser.username}}</h3>
+    <button id="vcbtn" onclick="startvc()"><img id="vcbtnimg" src='{% static "videocall.png" %}'/></button>
+    <button id="joinvid" onclick="joinvc()" >Join</button>
+    {{ singleUser.username|json_script:"json-musername" }}
+    {% endif %}
+    {%endfor%}
+    
+    {% else %}
+        <h1 style="color:rgb(64, 151, 245);">Public chat id:<span style="color:white;"> {{room_name}}</span> </h1>
+        
+    {% endif %}
+    
+   </div>
+
+
+    <!--<textarea id="chat-log" cols="100" rows="20" style="outline:none;" readonly></textarea><br>-->
+    {% block vc %}
+    <ul id="chat-log">
+       {% for m in messages %}
+        {% if m.username == request.user.username %}
+        <li class="sentt">
+        <b>You</b>: 
+            <br><br>
+        {{ m.content }}
+        <br>
+        </li>
+        {% else %}
+        <li class="repliess">
+        <b>{{ m.username }}</b>: 
+            <br><br>
+        {{ m.content }}
+        <br>
+        </li>
+        {% endif %}
+        {% endfor %} 
+        
+        
+    </ul>
+    <div id='inputstuff'>
+    <input id="chat-message-input" type="text" size="100" style="outline:none;" placeholder="Type your message">
+    <button id="chat-message-submit" type="button">></button>
+    </div>
+    
+    {% endblock %}
+    
+    <!--   New div   -->
+    
+    <!-- End new div -->
+
+    {{ username|json_script:"json-username" }}
+    {{ room_name|json_script:"room-name" }}
+    <script src="{% static 'room.js' %}" ></script>
+    <script src="{% static 'ptop.js' %}"></script>
+
+   <!--        new scripts            -->
+<!--     <script src="{% static 'sender.js' %}" ></script> -->
+<!--     <script src="{% static 'reciever.js' %}" ></script> -->
+    <!-- /new scripts -->
+    {% endblock %}

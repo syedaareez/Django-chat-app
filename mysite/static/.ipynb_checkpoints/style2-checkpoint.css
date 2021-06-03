@@ -1,0 +1,363 @@
+body {
+  background-color: white;
+  background-image:url('wallpaper.jpg');
+  text-align: center;
+  color: black;
+  font-family: Helvetica, sans-serif;
+}
+nav{
+position:fixed;
+top:5px;
+right:5px;
+left:5px;
+height:60px;
+opacity:0.9;
+border:1px solid white;
+box-shadow:3px 3px 3px black;
+border-radius:15px;
+}
+#lo{
+    position:fixed;
+    top:25px;
+    right:30px;
+color:black;
+font-weight:bold;
+}
+#lo:hover{
+    color:red;
+}
+
+#o{
+position:fixed;
+top:69px;
+left:0px;
+width:350px;
+bottom:5px;
+border:1px solid white;
+box-shadow:3px 3px 3px black;
+border-radius:15px;
+margin:5px;
+background:transparent;
+}
+::-webkit-scrollbar-thumb{
+    border-radius:55px;
+    background-color:rgb(195, 198, 201);
+    width:11px;
+    opacity:0.5;
+    
+}
+::-webkit-scrollbar{
+    border-radius:25px;
+    width:10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background-color:rgb(95, 102, 97);
+}
+#t{
+position:fixed;
+top:69px;
+right:0px;
+left:358px;
+bottom:5px;
+border:1px solid white;
+box-shadow:3px 3px 3px black;
+border-radius:15px;
+margin:5px;
+overflow:auto;
+
+}
+#logo{
+    position:fixed;
+    top:-25px;
+    left:45%;
+    height:120px;
+}
+#usr{
+    position:fixed;
+    top:25px;
+    left:80px;
+
+    
+}
+#start,#room-name-submit{
+    background-color:rgb(64, 151, 245);
+    border-radius:25px;
+    height:40px;
+    width:90px;
+    color:white;
+    font-weight:bold;
+    font-size:15px;
+}
+#room-name-input{
+    height:35px;
+    font-size:20px;
+    width:250px;
+    text-align:center;
+}
+#pp{
+    position:fixed;
+    top:12px;
+    left:25px;
+    height:45px;
+    width:45px;
+    border-radius:50px;
+    
+}
+#chat-log{
+    font-size:20px;
+    resize:none;
+    height:69%;
+    width:97%;
+    background:transparent;
+    border-radius:15px;
+    padding:10px;
+    overflow:auto;
+    margin-top:5px;
+    margin-bottom:2px;
+}
+#chat-message-submit{
+    display:inline-block;
+    background-color:rgb(64, 151, 245);
+    color:white;
+    font-size:30px;
+    height:53px;
+    width:53px;
+    border-radius:50px;
+    position:relative;
+    top:3px;
+}
+#chat-message-input{
+    display:inline-block;
+    border-radius:20px;
+    font-size:20px;
+    width:800px;
+    height:28px;
+    padding:10px;
+    
+}
+#usrblock{
+    min-width:300px; 
+    min-height:64px; 
+    border:1px solid rgb(174, 175, 176); 
+    border-radius:25px; 
+    padding:5px; 
+    margin:10px; 
+    box-shadow:2px 2px 2px black;
+    background-color:rgb(171, 255, 199);
+    cursor:pointer;
+    
+}
+#usrblock:hover{
+    background-color:rgb(64, 151, 245);
+    color:white;
+    padding:8px;
+    box-shadow:5px 5px 5px black;
+}
+h1{
+    font-family: 'Monoton', cursive;
+}
+#srchbar{
+    outline:none; 
+    height:40px; 
+    width:300px;
+    border-radius:25px; 
+    font-size:15px; 
+    padding:10px;
+    position:relative;
+    left:25px;
+}
+#srchbtn{
+    height:30px;
+    width:30px;
+    background:transparent;
+    position:relative;
+    top:10px;
+    left:-35px;
+    opacity:0.7;
+    cursor:pointer;
+}
+#t #chat-log li.sent{
+    background-color:rgb(18, 140, 126);
+    color:white;
+    border:1px solid grey;
+    border-radius:25px;
+    font-size:20px;
+    min-height:35px;
+    padding-right:8px;
+    padding-left:8px;
+    box-shadow:2px 2px 2px black;
+    display:block;
+    word-wrap:break-word;
+    margin:10px;
+    margin-left:50%;
+    position:relative;
+    right:10px;
+}
+#t #chat-log li.replies{
+    background-color:rgb(220, 248, 198);
+    color:black;
+    border:1px solid white;
+    border-radius:25px;
+    padding-right:8px;
+    padding-left:8px;
+    font-size:20px;
+    min-height:35px;
+    max-width:50%;
+    box-shadow:2px 2px 2px black;
+    display:block;
+    word-wrap:break-word;
+    margin:10px;
+    position:relative;
+    left:20px;
+}
+#t #chat-log li.sentt{
+    background-color:rgb(18, 140, 126);
+    color:white;
+    border:1px solid grey;
+    border-radius:25px;
+    font-size:20px;
+    min-height:35px;
+    padding-top:19px;
+    padding-bottom:19px;
+    padding-right:8px;
+    padding-left:8px;
+    box-shadow:2px 2px 2px black;
+    display:block;
+    word-wrap:break-word;
+    margin:10px;
+    margin-left:50%;
+    position:relative;
+    right:10px;
+}
+#t #chat-log li.repliess{
+    background-color:rgb(220, 248, 198);
+    border:1px solid white;
+    border-radius:25px;
+    color:black;
+    padding-top:19px;
+    padding-bottom:19px;
+    padding-right:8px;
+    padding-left:8px;
+    font-size:20px;
+    min-height:35px;
+    max-width:50%;
+    box-shadow:2px 2px 2px black;
+    display:block;
+    word-wrap:break-word;
+    margin:10px;
+    position:relative;
+    left:20px;
+}
+#likenav{
+    background:transparent;
+    border-bottom:3px solid rgb(164, 171, 169);
+}
+#usrlog{
+    height:50px; 
+    width:50px; 
+    border-radius:100px;
+}
+#blnkpge{
+    font-family: 'Luckiest Guy', cursive;
+    font-size:30px;
+    opacity:0.7;
+}
+#chatuser{
+    border-bottom:3px solid rgb(164, 171, 169);
+}
+#chatuser #usrlog{
+    display:inline-block;
+    margin-top:10px;
+}
+#chatuser #usrlogusrnme{
+    display:inline-block;
+    position:relative;
+    top:-15px;
+}
+#vcbtn{
+    background:transparent;
+    display:inline-block;
+    position:relative;
+    left:200px;
+    outline:none;
+    border:none;
+    border-radius:80px;
+    cursor:pointer;
+    padding:10px;
+    
+}
+#vcbtn:hover{
+    background-color:rgb(187, 189, 191);
+}
+#vcbtn #vcbtnimg{
+    height:40px;
+    width:40px;
+    color:white;
+
+}
+#joinvid{
+    background-color:green;
+    color:white;
+    font-weight:bold;
+    border-radius:15px;
+    display:inline-block;
+    font-size:20px;
+    padding:5px;
+    position:relative;
+    bottom:13px;
+    left:220px;
+    cursor:pointer;
+}
+#joinvideo{
+    background-color:green;
+    color:white;
+    font-weight:bold;
+    border-radius:15px;
+    font-size:20px;
+    width:80px;
+    padding:5px;
+    cursor:pointer;
+    
+}
+#vcvc{
+    background-color:rgb(220, 248, 198);
+    height:250px;
+    width:600px;
+    padding-top:100px;
+    box-shadow:5px 5px 5px black;
+    border-radius:10px;
+    margin:auto;
+    margin-top:50px;
+}
+#declinevc{
+    background-color:red;
+    color:white;
+    font-weight:bold;
+    border-radius:15px;
+    font-size:20px;
+    width:80px;
+    padding:5px;
+    cursor:pointer;
+    
+}
+#mv,#ma{
+    background-color:white;
+    height:40px;
+    width:40px;
+    border-radius:70px;
+    cursor:pointer;
+    box-shadow:2px 2px 2px white;
+    opacity:0.6;
+}
+#endend{
+    background-color:black;
+    height:40px;
+    width:40px;
+    border-radius:70px;
+    cursor:pointer;  
+    box-shadow:2px 2px 2px white;
+    opacity:0.6;
+}
+#mv:hover,#ma:hover,#endend:hover{
+    opacity:1;
+}

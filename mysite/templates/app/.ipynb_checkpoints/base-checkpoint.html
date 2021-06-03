@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>V chat</title>
+
+<!-- Links -->
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Pattaya&display=swap" rel="stylesheet">
+<link rel='stylesheet' href="{% static 'style.css' %}" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!-- end link -->
+
+
+</head>
+<body>
+    <a href="{% url 'index' %}"><img src='{% static "Vchatlogo.png" %}' alt='logo' /></a>
+
+<br><br>
+<div id='blk'>
+    {% block content %}
+    <h1><span id='V'>V</span>chat</h1>
+    <br><br>
+    <a href="{% url 'app:user_login' %}"><button type='button' id="lin">Log In</button></a>
+    <p>Or</p>
+    <a href="{% url 'app:register' %}" id='reg'>Register</a>
+    {% endblock %}
+</div>
+<br><br><br><br>
+    <table>
+        <tr>
+            <td><a href="http://www.google.com"><img id='g' src='{% static "google.png" %}' alt='logo' /></a></td>
+            <td><a href="http://www.github.com"><img id='f' src='{% static "facebook.png" %}' alt='logo' /></a></td>
+            <td><a href="http://www.facebook.com"><img id='gi' src='{% static "github.png" %}' alt='logo' /></a></td>
+            <td><a href="http://www.instagram.com"><img id='i' src='{% static "instagram.png" %}' alt='logo' /></a></td>
+        </tr>
+    </table>
+    <br>
+    <p style="opacity:0.6;">Copyright © 2021. All rights reserved</p>
+    <p style="opacity:0.6;">Site designed by @SyedAareez</p>
+</body>
+</html>

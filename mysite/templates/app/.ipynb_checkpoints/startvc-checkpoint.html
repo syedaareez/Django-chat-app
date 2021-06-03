@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+{% extends 'app/room.html' %}
+{% load static %}
+{% block vc %}
+
+{% for singleUser in allUsers %}
+    {% if singleUser.id == fir and request.user.id == las %}
+        <div id='vcvc'>
+        <h1>Video call to {{singleUser.username}} ?</h1>
+        <button onclick="startCall()" id="joinvideo" >Start</button>
+        <button type="button" id="declinevc" onclick="private({{singleUser.id}})" style="display:inline-block; background-color:red;">No</button>
+        </div>
+    {% elif singleUser.id == las and request.user.id == fir %}
+        <div id='vcvc'>
+        <h1>Video call to {{singleUser.username}} ?</h1>
+        <button onclick="startCall()" id="joinvideo" >Start</button>
+        <button type="button" id="declinevc" onclick="private({{singleUser.id}})" style="display:inline-block; background-color:red; color:white;">No</button>
+        </div>
+    {% endif %}
+{%endfor%}
+
+
+<div id="video-call-div" style="display:none; ">
+            <video muted id="local-video" style="height:200px; width:200px; position:relative; top:5px; right:370px; background-color:white; background:transparent;" autoplay></video>
+            <video id="remote-video" style="height:85%; width:100%; margin-top:0px; background-color:black; margin-bottom:0px; position:relative; bottom:205px; z-index:-1;" autoplay></video>
+            <div class="call-action-div" style="position:relative; bottom:270px; border-radius:70px; ">
+                <button onclick="muteVideo()" ><img id="mv" src="{% static 'mutevideo.jpg' %}" /></button>
+                <button onclick="muteAudio()"><img  id="ma" src="{% static 'muteaudio.png' %}" /></button>
+                <button onclick="endcall()"  ><img id="endend" src="{% static 'endcall.png' %}" /></button>
+            </div>
+        </div>
+
+{{ username|json_script:"json-username" }}
+{{ room_name|json_script:"room-name" }}
+<script src="{% static 'sender.js' %}" ></script>
+<script src="{% static 'ptop.js' %}"></script>
+
+{% endblock vc %}

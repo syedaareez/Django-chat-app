@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'app/base.html' %}
+{% block content %}
+{% if registered %}
+<h1>REGISTERED SUCCESFULLY!</h1>
+<br>
+<br>
+<p>Click on logo for Login!</p>
+{% else %}
+<h2 >REGISTER HERE!</h2>
+<br>
+<form method='POST' enctype='multipart/form-data'>
+{% csrf_token %}
+{{ user_form.as_p }}
+{{ profile_form.as_p }}
+    <br>
+<button id="lin" type='submit'>Register</button>
+</form>
+{% endif%}
+{% endblock %}

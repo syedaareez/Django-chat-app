@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+{% extends 'app/base2.html' %}
+{% load static %}
+{% block content2 %}
+
+<br><br><br><br><br><br><br><br><br>
+<h2 id="blnkpge">Please enter name of the chatroom!</h2>
+<br>
+    <input id="room-name-input" type="text" size="100" placeholder="Room"><br>
+<br>
+<input id="room-name-submit" type="button" value="Enter">
+{{ username|json_script:"json-username" }}
+<script src="{% static 'chatroom.js' %}"></script>
+{% endblock %}

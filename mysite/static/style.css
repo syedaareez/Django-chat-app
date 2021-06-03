@@ -1,0 +1,78 @@
+body {
+  background-color: white;
+  text-align: center;
+  color: black;
+  font-family: Helvetica, sans-serif;
+  background-image:url('wallpaper.jpg');
+  background-repeat: no-repeat;
+  background-size: 2000px 2001px;
+}
+h1{
+font-family: 'Pattaya', sans-serif;
+text-align:center;
+
+}
+
+#lin{
+background-color:rgb(64, 151, 245);
+color:white;
+border-radius:10px;
+height:35px;
+width:80px;
+font-weight:bold;
+font-size:15px;
+}
+#reg{
+color:rgb(64, 151, 245);
+}
+#blk{
+border:2px solid rgb(184, 184, 184);
+border-radius:25px;
+padding:50px;
+min-height:150px;
+width:250px;
+margin:auto;
+box-shadow:5px 5px 5px black;
+}
+input{
+border-radius:10px;
+height:25px;
+text-align:center;
+}
+label{
+    font-weight:bold; 
+    color:rgb(64, 151, 245);
+}
+.helptext{
+    opacity:0.5;
+    margin-top:10px;
+}
+table{
+    margin:auto;
+    text-align:center;
+}
+#g,#gi,#f,#i{
+    height:25px;
+    width:25px;
+    margin:8px;
+}
+p span{
+    display:block;
+}
+#id_profile_pic{
+    padding:10px;
+}
+#aapp{
+    height:200px;
+    width:200px;
+    border-radius:250px;
+}
+#anbtn{
+    background-color:rgb(64, 151, 245);
+    border-radius:25px;
+    height:40px;
+    width:90px;
+    color:white;
+    font-weight:bold;
+    font-size:15px;
+}
